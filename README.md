@@ -16,7 +16,7 @@ Learn more about Layrry in this series of blog posts:
 ## Why Layrry?
 
 The Java Module System doesn't define any means of mapping between modules (e.g. _com.acme.crm_) and JARs providing such module
-(e.g. _acme-crm-1.0.7.Final.jar_) or retrieving modules from remote repositories using unique identifiers (e.g. _com.acme:acme-crm:1.0.7.Final_).
+(e.g. _acme-crm-1.0.8.Final.jar_) or retrieving modules from remote repositories using unique identifiers (e.g. _com.acme:acme-crm:1.0.8.Final_).
 Instead, it's the responsibility of the user to obtain all required JARs of a modularized application and provide them via `--module-path`.
 
 Furthermore, the module system doesn't define any means of module versioning;
@@ -45,13 +45,13 @@ The Layrry Launcher is a CLI tool which takes a configuration of a layered appli
 It's used like so:
 
 ```
-layrry-launcher-1.0.7-all.jar --layers-config <path/to/layers.yml> [program arguments]
+layrry-launcher-1.0.8-all.jar --layers-config <path/to/layers.yml> [program arguments]
 ```
 
 E.g. like so:
 
 ```
-layrry-launcher-1.0.7-all.jar --layers-config hello-world.yml Alice Bob
+layrry-launcher-1.0.8-all.jar --layers-config hello-world.yml Alice Bob
 ```
 
 The application layers configuration file is a YAML file which the following structure:
@@ -103,25 +103,25 @@ layers:
     modules:
       - "org.apache.logging.log4j:log4j-api:jar:2.13.1"
       - "org.apache.logging.log4j:log4j-core:jar:2.13.1"
-      - "com.example:logconfig:1.0.7"
+      - "com.example:logconfig:1.0.8"
   foo:
     parents:
       - "log"
     modules:
-      - "com.example:greeter:1.0.7"
-      - "com.example:foo:1.0.7"
+      - "com.example:greeter:1.0.8"
+      - "com.example:foo:1.0.8"
   bar:
     parents:
       - "log"
     modules:
       - "com.example:greeter:2.0.0"
-      - "com.example:bar:1.0.7"
+      - "com.example:bar:1.0.8"
   app:
     parents:
       - "foo"
       - "bar"
     modules:
-      - "com.example:app:1.0.7"
+      - "com.example:app:1.0.8"
 main:
   module: com.example.app
   class: com.example.app.App
@@ -134,20 +134,20 @@ Alternatively you may use TOML instead of YAML
   modules = [
     "org.apache.logging.log4j:log4j-api:jar:2.13.1",
     "org.apache.logging.log4j:log4j-core:jar:2.13.1",
-    "com.example.it:it-logconfig:1.0.7"]
+    "com.example.it:it-logconfig:1.0.8"]
 [layers.foo]
   parents = ["log"]
   modules = [
-    "com.example.it:it-greeter:1.0.7",
-    "com.example.it:it-foo:1.0.7"]
+    "com.example.it:it-greeter:1.0.8",
+    "com.example.it:it-foo:1.0.8"]
 [layers.bar]
   parents = ["log"]
   modules = [
     "com.example.it:it-greeter:2.0.0",
-    "com.example.it:it-bar:1.0.7"]
+    "com.example.it:it-bar:1.0.8"]
 [layers.app]
   parents = ["foo", "bar"]
-  modules = ["com.example.it:it-app:1.0.7"]
+  modules = ["com.example.it:it-app:1.0.8"]
 [main]
   module = "com.example.app"
   class = "com.example.app.App"
@@ -259,16 +259,16 @@ supported by JavaFX
 
 **versions.properties**
 ```properties
-project_version = 1.0.7
-javafx_version = 11.0.7
+project_version = 1.0.8
+javafx_version = 11.0.8
 tilesfx_version = 11.44
-layrry_version = 1.0.7
+layrry_version = 1.0.8
 ```
 
 This application can be launched as
 
 ```
-layrry-launcher-1.0.7-all.jar --layers-config layers.toml --properties versions.properties
+layrry-launcher-1.0.8-all.jar --layers-config layers.toml --properties versions.properties
 ```
 
 ## Using the Layrry API
@@ -283,7 +283,7 @@ In order to use Layrry programmatically, add the following dependency to your _p
 <dependency>
     <groupId>org.moditect.layrry</groupId>
     <artifactId>layrry</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
 </dependency>
 ```
 
@@ -294,19 +294,19 @@ Layers layers = Layers.builder()
     .layer("log")
         .withModule("org.apache.logging.log4j:log4j-api:jar:2.13.1")
         .withModule("org.apache.logging.log4j:log4j-core:jar:2.13.1")
-        .withModule("com.example:logconfig:1.0.7")
+        .withModule("com.example:logconfig:1.0.8")
     .layer("foo")
         .withParent("log")
-        .withModule("com.example:greeter:1.0.7")
-        .withModule("com.example:foo:1.0.7")
+        .withModule("com.example:greeter:1.0.8")
+        .withModule("com.example:foo:1.0.8")
     .layer("bar")
         .withParent("log")
         .withModule("com.example:greeter:2.0.0")
-        .withModule("com.example:bar:1.0.7")
+        .withModule("com.example:bar:1.0.8")
     .layer("app")
         .withParent("foo")
         .withParent("bar")
-        .withModule("com.example:app:1.0.7")
+        .withModule("com.example:app:1.0.8")
     .build();
 
 layers.run("com.example.app/com.example.app.App", "Alice");
