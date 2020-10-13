@@ -29,8 +29,8 @@ import org.moditect.layrry.launcher.LayrryLauncher;
 
 public class LayrryLinksTest {
 
-    private static final String TOURNAMENT_PLUGIN_NAME = "layrry-links-tournament-1.0.0";
-    private static final String GREENKEEPING_PLUGIN_NAME = "layrry-links-greenkeeping-1.0.0";
+    private static final String TOURNAMENT_PLUGIN_NAME = "layrry-links-tournament-1.0.1";
+    private static final String GREENKEEPING_PLUGIN_NAME = "layrry-links-greenkeeping-1.0.1";
 
     private String layersConfig;
     private Path pluginDir1;

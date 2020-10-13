@@ -21,14 +21,14 @@
   <parent>
     <groupId>org.moditect.layrry</groupId>
     <artifactId>layrry-plugin-example</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example.greeter</groupId>
   <artifactId>greeter-en</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <name>Greeter EN</name>
 
   <dependencies>

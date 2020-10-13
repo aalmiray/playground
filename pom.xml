@@ -21,7 +21,7 @@
 
   <groupId>org.moditect.layrry</groupId>
   <artifactId>layrry-aggregator</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <packaging>pom</packaging>
 
   <name>Layrry Aggregator</name>

@@ -21,14 +21,14 @@
   <parent>
     <groupId>org.moditect.layrry</groupId>
     <artifactId>layrry-plugin-example</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example.greeter</groupId>
   <artifactId>greeter-core</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <packaging>jar</packaging>
   <name>Geeter API</name>
 
@@ -36,7 +36,7 @@
     <dependency>
       <groupId>org.moditect.layrry</groupId>
       <artifactId>layrry-platform</artifactId>
-      <version>1.0.0</version>
+      <version>1.0.1</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>

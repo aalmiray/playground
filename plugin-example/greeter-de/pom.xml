@@ -21,14 +21,14 @@
   <parent>
     <groupId>org.moditect.layrry</groupId>
     <artifactId>layrry-plugin-example</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example.greeter</groupId>
   <artifactId>greeter-de</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <packaging>jar</packaging>
   <name>Greeter DE</name>
 
@@ -40,7 +40,7 @@
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>greeter-date-util</artifactId>
-      <version>1.0.0</version>
+      <version>1.0.1</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
