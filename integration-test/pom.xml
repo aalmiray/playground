@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.moditect.layrry</groupId>
     <artifactId>layrry-aggregator</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
   </parent>
 
   <artifactId>layrry-integrationtest</artifactId>
@@ -30,7 +30,7 @@
   <name>Layrry Integration Test - Aggregator</name>
 
   <modules>
-    <module>it-greeter-1.0.1</module>
+    <module>it-greeter-1.0.2</module>
     <module>it-greeter-2.0.0</module>
     <module>it-foo</module>
     <module>it-bar</module>

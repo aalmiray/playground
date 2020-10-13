@@ -25,12 +25,12 @@
   <parent>
     <groupId>org.moditect.layrry</groupId>
     <artifactId>layrry-links-example</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
   </parent>
 
   <groupId>com.example.layrry.links</groupId>
   <artifactId>layrry-links-core</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <packaging>jar</packaging>
   <name>Layrry Links Core</name>
 
@@ -38,7 +38,7 @@
     <dependency>
       <groupId>org.moditect.layrry</groupId>
       <artifactId>layrry-platform</artifactId>
-      <version>1.0.1</version>
+      <version>1.0.2</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>

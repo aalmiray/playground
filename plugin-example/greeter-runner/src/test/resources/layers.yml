@@ -17,10 +17,10 @@
 layers:
   layrry-platform:
     modules:
-      - "org.moditect.layrry:layrry-platform:1.0.1"
+      - "org.moditect.layrry:layrry-platform:1.0.2"
   api:
     modules:
-      - "com.example.greeter:greeter-core:1.0.1"
+      - "com.example.greeter:greeter-core:1.0.2"
     parents:
       - "layrry-platform"
   plugins:

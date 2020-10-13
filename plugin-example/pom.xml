@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.moditect.layrry</groupId>
     <artifactId>layrry-aggregator</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
   </parent>
 
   <artifactId>layrry-plugin-example</artifactId>
@@ -31,7 +31,7 @@
 
   <modules>
     <module>greeter-core</module>
-    <module>greeter-date-util-1.0.1</module>
+    <module>greeter-date-util-1.0.2</module>
     <module>greeter-date-util-2.0.0</module>
     <module>greeter-en</module>
     <module>greeter-de</module>
@@ -44,7 +44,7 @@
       <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>greeter-core</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

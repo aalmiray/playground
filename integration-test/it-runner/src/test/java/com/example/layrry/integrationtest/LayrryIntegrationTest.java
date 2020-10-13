@@ -48,7 +48,7 @@ public class LayrryIntegrationTest {
     private void assertOutput() {
         String output = sysOut.toString();
 
-        assertTrue(output.contains("com.example.foo.Foo - Hello, Alice from Foo (Greeter 1.0.1)"));
+        assertTrue(output.contains("com.example.foo.Foo - Hello, Alice from Foo (Greeter 1.0.2)"));
         assertTrue(output.contains("com.example.bar.Bar - Hello, Alice from Bar (Greeter 2.0.0)"));
         assertTrue(output.contains("com.example.bar.Bar - Good bye, Alice from Bar (Greeter 2.0.0)"));
     }
@@ -59,19 +59,19 @@ public class LayrryIntegrationTest {
             .layer("log")
                 .withModule("org.apache.logging.log4j:log4j-api:jar:2.13.1")
                 .withModule("org.apache.logging.log4j:log4j-core:jar:2.13.1")
-                .withModule("com.example.it:it-logconfig:1.0.1")
+                .withModule("com.example.it:it-logconfig:1.0.2")
             .layer("foo")
                 .withParent("log")
-                .withModule("com.example.it:it-greeter:1.0.1")
-                .withModule("com.example.it:it-foo:1.0.1")
+                .withModule("com.example.it:it-greeter:1.0.2")
+                .withModule("com.example.it:it-foo:1.0.2")
             .layer("bar")
                 .withParent("log")
                 .withModule("com.example.it:it-greeter:2.0.0")
-                .withModule("com.example.it:it-bar:1.0.1")
+                .withModule("com.example.it:it-bar:1.0.2")
             .layer("app")
                 .withParent("foo")
                 .withParent("bar")
-                .withModule("com.example.it:it-app:1.0.1")
+                .withModule("com.example.it:it-app:1.0.2")
             .build();
 
         layers.run("com.example.app/com.example.app.App", "Alice");

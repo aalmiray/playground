@@ -21,7 +21,7 @@
   <parent>
     <groupId>org.moditect.layrry</groupId>
     <artifactId>layrry-plugin-example</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
@@ -78,7 +78,7 @@
                 <artifactItem>
                   <groupId>com.example.greeter</groupId>
                   <artifactId>greeter-en</artifactId>
-                  <version>1.0.1</version>
+                  <version>1.0.2</version>
                   <type>jar</type>
                   <overWrite>false</overWrite>
                   <outputDirectory>${project.build.directory}/layers/greeter-en</outputDirectory>
@@ -116,7 +116,7 @@
                 <artifactItem>
                   <groupId>com.example.greeter</groupId>
                   <artifactId>greeter-de</artifactId>
-                  <version>1.0.1</version>
+                  <version>1.0.2</version>
                   <type>jar</type>
                   <overWrite>false</overWrite>
                   <outputDirectory>${project.build.directory}/layers/greeter-de</outputDirectory>
@@ -135,7 +135,7 @@
                 <artifactItem>
                   <groupId>com.example.greeter</groupId>
                   <artifactId>greeter-date-util</artifactId>
-                  <version>1.0.1</version>
+                  <version>1.0.2</version>
                   <type>jar</type>
                   <overWrite>false</overWrite>
                   <outputDirectory>${project.build.directory}/layers/greeter-de</outputDirectory>
@@ -154,7 +154,7 @@
                 <artifactItem>
                   <groupId>com.example.greeter</groupId>
                   <artifactId>greeter-fr</artifactId>
-                  <version>1.0.1</version>
+                  <version>1.0.2</version>
                   <type>jar</type>
                   <overWrite>false</overWrite>
                   <outputDirectory>${project.build.directory}/layers/greeter-fr</outputDirectory>
