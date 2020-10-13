@@ -19,12 +19,16 @@ name: Release
 on:
   push:
     tags:
-      - "*"
+      - "v*"
 
 jobs:
   Release:
     runs-on: ubuntu-latest
     steps:
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
+
     - name: Checkout
       uses: actions/checkout@v2
 
@@ -47,13 +51,13 @@ jobs:
       id: changelog
       uses: heinrichreimer/github-changelog-generator-action@v2.1.1
       with:
-        token: ${{ secrets.RELEASE_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Create release
       id: create_release
       uses: actions/create-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ github.ref }}
         release_name: Release ${{ github.ref }}
@@ -65,20 +69,20 @@ jobs:
       id: upload-zip
       uses: actions/upload-release-asset@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./layrry-launcher/target/distributions/layrry-launcher-${{ github.ref }}.zip
-        asset_name: layrry-launcher-${{ github.ref }}.zip
+        asset_path: ./layrry-launcher/target/distributions/layrry-launcher-${{ steps.get_version.outputs.VERSION }}.zip
+        asset_name: layrry-launcher-${{ steps.get_version.outputs.VERSION }}.zip
         asset_content_type: application/zip
 
     - name: Upload tgz
       id: upload-tgz
       uses: actions/upload-release-asset@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./layrry-launcher/target/distributions/layrry-launcher-${{ github.ref }}.tar.gz
-        asset_name: layrry-launcher-${{ github.ref }}.tar.gz
+        asset_path: ./layrry-launcher/target/distributions/layrry-launcher-${{ steps.get_version.outputs.VERSION }}.tar.gz
+        asset_name: layrry-launcher-${{ steps.get_version.outputs.VERSION }}.tar.gz
         asset_content_type: application/gzip
