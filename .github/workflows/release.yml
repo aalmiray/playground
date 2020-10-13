@@ -1,0 +1,84 @@
+#
+#  Copyright 2020 The ModiTect authors
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+
+name: Release
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  Release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Java
+      uses: actions/setup-java@v1
+      with:
+        java-version: 15
+
+    - name: Cache Maven
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+
+    - name: Build Maven
+      run: mvn -B install --file pom.xml -DskipTests
+
+    -name: Generate Changelog
+      id: changelog
+      uses: heinrichreimer/github-changelog-generator-action@v2.1.1
+      with:
+        token: ${{ secrets.RELEASE_TOKEN }}
+
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: ${{ changelog.changelog }}
+        draft: false
+        prerelease: false
+
+    - name: Upload zip
+      id: upload-zip
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./layrry-launcher/target/distributions/layrry-launcher-${{ github.ref }}.zip
+        asset_name: layrry-launcher-${{ github.ref }}.zip
+        asset_content_type: application/zip
+
+    - name: Upload tgz
+      id: upload-tgz
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./layrry-launcher/target/distributions/layrry-launcher-${{ github.ref }}.tar.gz
+        asset_name: layrry-launcher-${{ github.ref }}.tar.gz
+        asset_content_type: application/gzip
