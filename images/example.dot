@@ -10,7 +10,7 @@ digraph "package dependencies"
         node [style=filled];
     	"org.apache.logging.log4j:log4j-api@2.13.1"
     	"org.apache.logging.log4j:log4j-core:jar:2.13.1"
-        "com.example:logconfig:1.0.6"
+        "com.example:logconfig:1.0.7"
     	label = "log";
     }
     
@@ -18,28 +18,28 @@ digraph "package dependencies"
         node [style=filled];
         
         
-        "com.example:foo@1.0.6";
-        "com.example:greeter@1.0.6" [label=<com.example:greeter@<font color='red'>1.0.6</font>>];
+        "com.example:foo@1.0.7";
+        "com.example:greeter@1.0.7" [label=<com.example:greeter@<font color='red'>1.0.7</font>>];
         
-        "com.example:foo@1.0.6" -> "org.apache.logging.log4j:log4j-api@2.13.1";
-        "com.example:foo@1.0.6" -> "com.example:greeter@1.0.6";
+        "com.example:foo@1.0.7" -> "org.apache.logging.log4j:log4j-api@2.13.1";
+        "com.example:foo@1.0.7" -> "com.example:greeter@1.0.7";
     }
     
     subgraph cluster_bar {
         node [style=filled];
         
         "com.example:greeter@2.0.0" [label=<com.example:greeter@<font color='red'>2.0.0</font>>];
-        "com.example:bar@1.0.6" -> "org.apache.logging.log4j:log4j-api@2.13.1";
-        "com.example:bar@1.0.6" -> "com.example:greeter@2.0.0";
+        "com.example:bar@1.0.7" -> "org.apache.logging.log4j:log4j-api@2.13.1";
+        "com.example:bar@1.0.7" -> "com.example:greeter@2.0.0";
     }
     
     subgraph cluster_app {
         node [style=filled];
         
-        "com.example:app@1.0.6"  -> "com.example:foo@1.0.6";
-        "com.example:app@1.0.6"  -> "com.example:bar@1.0.6";
+        "com.example:app@1.0.7"  -> "com.example:foo@1.0.7";
+        "com.example:app@1.0.7"  -> "com.example:bar@1.0.7";
         
-        "com.example:app@1.0.6"  -> "com.example:foo@1.0.6" [ltail=cluster_app,lhead=cluster_foo];
-        "com.example:app@1.0.6"  -> "com.example:bar@1.0.6" [ltail=cluster_app,lhead=cluster_bar];
+        "com.example:app@1.0.7"  -> "com.example:foo@1.0.7" [ltail=cluster_app,lhead=cluster_foo];
+        "com.example:app@1.0.7"  -> "com.example:bar@1.0.7" [ltail=cluster_app,lhead=cluster_bar];
     }
 }
