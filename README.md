@@ -45,13 +45,13 @@ The Layrry Launcher is a CLI tool which takes a configuration of a layered appli
 It's used like so:
 
 ```
-layrry-launcher-1.0-SNAPSHOT-all.jar --layers-config <path/to/layers.yml> [program arguments]
+layrry-launcher-1.0.0-all.jar --layers-config <path/to/layers.yml> [program arguments]
 ```
 
 E.g. like so:
 
 ```
-layrry-launcher-1.0-SNAPSHOT-all.jar --layers-config hello-world.yml Alice Bob
+layrry-launcher-1.0.0-all.jar --layers-config hello-world.yml Alice Bob
 ```
 
 The application layers configuration file is a YAML file which the following structure:
@@ -262,13 +262,13 @@ supported by JavaFX
 project_version = 1.0.0
 javafx_version = 11.0.2
 tilesfx_version = 11.44
-layrry_version = 1.0-SNAPSHOT
+layrry_version = 1.0.0
 ```
 
 This application can be launched as
 
 ```
-layrry-launcher-1.0-SNAPSHOT-all.jar --layers-config layers.toml --properties versions.properties
+layrry-launcher-1.0.0-all.jar --layers-config layers.toml --properties versions.properties
 ```
 
 ## Using the Layrry API
@@ -283,7 +283,7 @@ In order to use Layrry programmatically, add the following dependency to your _p
 <dependency>
     <groupId>org.moditect.layrry</groupId>
     <artifactId>layrry</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
