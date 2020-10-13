@@ -21,7 +21,7 @@
 
   <groupId>org.moditect.layrry</groupId>
   <artifactId>layrry-aggregator</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <packaging>pom</packaging>
 
   <name>Layrry Aggregator</name>
@@ -39,9 +39,6 @@
     <module>layrry-config-toml</module>
     <module>layrry-core</module>
     <module>layrry-launcher</module>
-    <module>integration-test</module>
-    <module>plugin-example</module>
-    <module>vertx-example</module>
   </modules>
 
   <dependencyManagement>
